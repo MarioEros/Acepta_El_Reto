@@ -20,18 +20,18 @@ public class R144TecladoEstropeado {
         while(datos!=null){
             String[] entrada=datos.split("");
             StringBuilder solucion= new StringBuilder("");
-            int indice=0;
+            long indice=0;
             for(int i=0;i<entrada.length;i++){
                 if (entrada[i].equals("-")){
                     indice=0;
                 }else if (entrada[i].equals("+")){
                     indice=solucion.length();
                 }else if (entrada[i].equals("*")){
-                    indice++;
+                    if (solucion.length()>=indice+1)indice++;
                 }else if (entrada[i].equals("3")){
-                    if(solucion.length()>=indice+1)solucion=new StringBuilder(solucion.substring(0, indice)+solucion.substring(indice+1));
+                    if(solucion.length()>=indice+1)solucion=new StringBuilder(solucion.substring(0));
                 }else{
-                    solucion.insert(indice,entrada[i]);
+                    solucion.append(entrada[i]);
                     indice++;
                 }
             }
