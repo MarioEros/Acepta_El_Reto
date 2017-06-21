@@ -18,8 +18,9 @@ import java.util.Arrays;
 public class R315Buscaminas {
     public static void main(String[] args) throws IOException{
         BufferedReader lector=new BufferedReader(new InputStreamReader(System.in));
-        while (lector.ready()){
-            String[] entrada=lector.readLine().split(" ");
+        String datos=lector.readLine();
+        while (datos!=null){
+            String[] entrada=datos.split(" ");
             if(entrada[0].equals("0"))break;
             int fila=Integer.parseInt(entrada[0]);
             int col=Integer.parseInt(entrada[1]);
@@ -51,6 +52,7 @@ public class R315Buscaminas {
                 for(int i=0;i<fila;i++)respuesta+="\n"+(Arrays.toString(solucion[i]).replace("[", "").replace(", ", "")).replace("]", "");
                 System.out.println(respuesta.substring(1));
             }
+            datos=lector.readLine();
         }
     }
     private static String[][] unClic(int unfila, int uncol, String[][] array, String[][] arraybomb) {
